@@ -1,16 +1,19 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true
+  'env': {
+    'browser': true,
+    'es2021': true,
   },
-  extends: 'standard-with-typescript',
-  overrides: [
+ 
+  'parser': '@typescript-eslint/parser',
+  'parserOptions': {
+    'ecmaVersion': 'latest',
+    'sourceType': 'module',
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "cypress"
   ],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module'
-  },
-  rules: {
+  "rules": {
     "quotes": ["error", "double"],
     "cypress/no-assigning-return-values": "error",
     "cypress/no-unnecessary-waiting": "error",
@@ -20,8 +23,4 @@ module.exports = {
     "require-jsdoc": "warn",
     "max-len": [ "error", { "code": 120 } ]
   },
-  "plugins": [
-    "@typescript-eslint",
-    "cypress"
-  ]  
-}
+};

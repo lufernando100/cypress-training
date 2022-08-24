@@ -4,8 +4,10 @@
   "description": "This is a Workshop about Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "cypress open",
-    "test:open": "cypress open"
+    "test": "cypress run",
+    "test:open": "npm run lint && cypress open",
+    "lint": "eslint ./cypress/e2e/**/*.ts",
+    "lint:fix": "npm run lint -- --fix"
   },
   "repository": {
     "type": "git",
@@ -32,7 +34,9 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.2.4",
     "eslint-plugin-promise": "^6.0.0",
-    "cypress": "^10.6.0",
     "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@typescript-eslint/parser": "^5.34.0"
   }
 }
