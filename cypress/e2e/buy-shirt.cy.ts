@@ -1,7 +1,12 @@
+import {MenuContentPage} from "../page/index"
+
+const menuContentPageURL = new MenuContentPage();
+
 describe("Buy a t-shirt", () => {
     it("then the t-shirt should be bought", () => {
-      cy.visit("http://automationpractice.com/");
-      cy.get("#block_top_menu > ul > li:nth-child(3) > a").click();
+     menuContentPageURL.visitMenuContentPage();
+     menuContentPageURL.goToShirtMenu();
+     
       cy.get(
         "#center_column a.button.ajax_add_to_cart_button.btn.btn-default"
       ).click();
