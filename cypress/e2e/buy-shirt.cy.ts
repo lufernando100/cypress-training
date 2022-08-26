@@ -1,40 +1,34 @@
-import {MenuContentPage} from "../page/index"
+import {
+  AddressStepPage,
+  MenuContentPage,
+  PaymentStepPage,
+} from "../page/index";
+import {
+  ProductsListPage,
+  ShippingStepPage,
+  ShoppingCartPage,
+} from "../page/index";
 
 const menuContentPageURL = new MenuContentPage();
+const productListPage = new ProductsListPage();
+const shoppingCartPage = new ShoppingCartPage();
+const shippingStepPage = new ShippingStepPage();
+const addressStepPage = new AddressStepPage();
+const paymentStepPage = new PaymentStepPage();
 
 describe("Buy a t-shirt", () => {
-    it("then the t-shirt should be bought", () => {
-     menuContentPageURL.visitMenuContentPage();
-     menuContentPageURL.goToShirtMenu();
-     
-      cy.get(
-        "#center_column a.button.ajax_add_to_cart_button.btn.btn-default"
-      ).click();
-  
-      cy.get("[style*='display: block;'] .button-container > a").click();
-  
-      cy.get(".cart_navigation span").click();
-  
-      cy.get("#email").type("aperdomobo@gmail.com");
-  
-      cy.get("#passwd").type("WorkshopProtractor");
-  
-      cy.get("#SubmitLogin > span").click();
-  
-      cy.get(".cart_navigation > .button > span").click();
-  
-      cy.get("#cgv").check();
-  
-      cy.get(".cart_navigation > .button > span").click();
-  
-      cy.get(".bankwire > span").click();
-  
-      cy.get("#cart_navigation > .button > span").click();
-      
-      cy.get("#center_column > div > p > strong").should(
-        "have.text",
-        "Your order on My Store is complete."
-      );
-    });
+  it("then the t-shirt should be bought", () => {
+    menuContentPageURL.visitMenuContentPage();
+    menuContentPageURL.goToShirtMenu();
+    productListPage.selectProductList();
+    productListPage.goToShopping();
+    shoppingCartPage.proceedCheckout();
+    shoppingCartPage.signInApplication();
+    addressStepPage.goToShippingCart();
+    shippingStepPage.goToPayment();
+    paymentStepPage.goToPayProduct();
+    paymentStepPage
+      .getConfirmationMessage()
+      .should("have.text", "Your order on My Store is complete.");
   });
-  
+});
