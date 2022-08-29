@@ -4,8 +4,8 @@ class PaymentStepPage {
   private confirmationMessage: string;
 
   constructor() {
-    this.payByBankButton = ".bankwire > span";
-    this.confirmOrderButton = "#cart_navigation > .button > span";
+    this.payByBankButton = ".bankwire";
+    this.confirmOrderButton = "#cart_navigation .button-medium";
     this.confirmationMessage = ".cheque-indent > .dark";
   }
 

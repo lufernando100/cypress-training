@@ -4,8 +4,8 @@ class ProductsListPage {
 
   constructor() {
     this.productList =
-      "#center_column a.button.ajax_add_to_cart_button.btn.btn-default";
-      this.proceedToCheckoutButton =".button-container > .button-medium > span"
+      "a[title='Add to cart']";
+      this.proceedToCheckoutButton =".button-container a[title='Proceed to checkout']"
   }
   selectProductList(): void {
     cy.get(this.productList).click();
