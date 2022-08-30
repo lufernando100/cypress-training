@@ -1,10 +1,10 @@
 class ShippingStepPage {
   private agreeTermsCheckbox: string;
-  private proceedCheckoutButton: string
+  private proceedCheckoutButton: string;
 
   constructor() {
     this.agreeTermsCheckbox = "#cgv";
-    this.proceedCheckoutButton = ".cart_navigation > .button > span";
+    this.proceedCheckoutButton = ".cart_navigation > .button";
   }
 
   goToPayment(): void {
@@ -13,4 +13,4 @@ class ShippingStepPage {
   }
 }
 
-export{ShippingStepPage}
+export { ShippingStepPage };

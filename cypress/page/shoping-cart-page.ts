@@ -5,7 +5,7 @@ class ShoppingCartPage {
   private signInButton: string;
 
   constructor() {
-    this.checkoutButton = ".standard-checkout > span";
+    this.checkoutButton = ".standard-checkout";
     this.useraname = "#email";
     this.password = "#passwd";
     this.signInButton = "#SubmitLogin";
