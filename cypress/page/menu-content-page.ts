@@ -5,7 +5,6 @@ class MenuContentPage {
   constructor() {
     this.tShirtMenu = "li:nth-child(3) [title='T-shirts']";
     this.menuContentPageURL = "http://automationpractice.com/";
-    cy.pause
   }
   
   public visitMenuContentPage(): void {
