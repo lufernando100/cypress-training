@@ -10,7 +10,6 @@ describe("the user navigates to the dresses page should", () => {
     menuContentPage = new MenuContentPage();
     dressesListPage = new DressesListPage();
     menuContentPage.visitMenuContentPage();
-    dressNumber = 5;
     dressName = [
       "Printed Dress",
       "Printed Dress",
@@ -18,6 +17,7 @@ describe("the user navigates to the dresses page should", () => {
       "Printed Summer Dress",
       "Printed Chiffon Dress",
     ];
+    dressNumber = dressName.length;
   });
 
   it("show the available dresses", () => {
