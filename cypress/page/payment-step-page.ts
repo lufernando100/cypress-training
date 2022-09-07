@@ -9,14 +9,18 @@ class PaymentStepPage {
     this.confirmationMessage = ".cheque-indent > .dark";
   }
 
- public  goToPayProduct(): void {
+  public goToPayProduct(): void {
     cy.get(this.payByBankButton).click();
     cy.get(this.confirmOrderButton).click();
   }
 
-  public getConfirmationMessage(): Cypress.Chainable<JQuery<HTMLElement>> {
-    return cy.get(this.confirmationMessage);
-  }
-}
+  ////public getConfirmationMessage(): Cypress.Chainable<JQuery<HTMLElement>> {
+  // return cy.get(this.confirmationMessage);
+  //}
 
+  validateItemsNumber(message: string) {
+    cy.get(this.confirmationMessage).should("contain.text",message);;
+  }
+
+}
 export { PaymentStepPage };

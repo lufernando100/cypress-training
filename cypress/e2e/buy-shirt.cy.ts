@@ -9,15 +9,23 @@ import {
   ShoppingCartPage,
 } from "../page/index";
 
-const menuContentPageURL = new MenuContentPage();
-const productListPage = new ProductsListPage();
-const shoppingCartPage = new ShoppingCartPage();
-const shippingStepPage = new ShippingStepPage();
-const addressStepPage = new AddressStepPage();
-const paymentStepPage = new PaymentStepPage();
-
 describe("Buy a t-shirt", () => {
-  it("then the t-shirt should be bought", () => {
+  let menuContentPageURL: MenuContentPage;
+  let productListPage: ProductsListPage;
+  let shoppingCartPage: ShoppingCartPage;
+  let shippingStepPage: ShippingStepPage;
+  let addressStepPage: AddressStepPage;
+  let paymentStepPage: PaymentStepPage;
+  let confirmationMessage = "Your order on My Store is complete.";
+
+  before(() => {
+    menuContentPageURL = new MenuContentPage();
+    productListPage = new ProductsListPage();
+    shoppingCartPage = new ShoppingCartPage();
+    shippingStepPage = new ShippingStepPage();
+    addressStepPage = new AddressStepPage();
+    paymentStepPage = new PaymentStepPage();
+
     menuContentPageURL.visitMenuContentPage();
     menuContentPageURL.goToShirtMenu();
     productListPage.selectProductList();
@@ -27,8 +35,8 @@ describe("Buy a t-shirt", () => {
     addressStepPage.goToShippingCart();
     shippingStepPage.goToPayment();
     paymentStepPage.goToPayProduct();
-    paymentStepPage
-      .getConfirmationMessage()
-      .should("have.text", "Your order on My Store is complete.");
+  });
+  it("then the t-shirt should be bought", () => {
+    paymentStepPage.validateItemsNumber(confirmationMessage);
   });
 });
