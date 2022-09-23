@@ -17,6 +17,7 @@ describe("Buy a t-shirt", () => {
   let addressStepPage: AddressStepPage;
   let paymentStepPage: PaymentStepPage;
   let confirmationMessage = "Your order on My Store is complete.";
+  let productName = "Faded Short Sleeve T-shirts";
 
   before(() => {
     menuContentPageURL = new MenuContentPage();
@@ -28,7 +29,7 @@ describe("Buy a t-shirt", () => {
 
     menuContentPageURL.visitMenuContentPage();
     menuContentPageURL.goToShirtMenu();
-    productListPage.selectProductList();
+    productListPage.selectProductList(productName);
     productListPage.goToShopping();
     shoppingCartPage.proceedCheckout();
     shoppingCartPage.signInApplication();
