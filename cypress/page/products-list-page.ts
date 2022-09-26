@@ -7,7 +7,7 @@ class ProductsListPage {
     this.productList = "a[title='Add to cart']";
     this.proceedToCheckoutButton =
       ".button-container a[title='Proceed to checkout']";
-    this.productos = ".container";
+    this.productos = ".product-container";
   }
   selectProductList(productName: string): void {
     this.findProductByName(productName).find(this.productList).click();
