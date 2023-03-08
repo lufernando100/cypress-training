@@ -1,23 +1,13 @@
 class ShoppingCartPage {
-  private checkoutButton: string;
-  private useraname: string;
-  private password: string;
-  private signInButton: string;
+
+  private shoppingCartButton: string;
 
   constructor() {
-    this.checkoutButton = ".standard-checkout";
-    this.useraname = "#email";
-    this.password = "#passwd";
-    this.signInButton = "#SubmitLogin";
+ 
+    this.shoppingCartButton = '.shopping_cart_link';
   }
-
-  proceedCheckout(): void {
-    cy.get(this.checkoutButton).click();
-  }
-  signInApplication(): void {
-    cy.get(this.useraname).type("aperdomobo@gmail.com");
-    cy.get(this.password).type("WorkshopProtractor");
-    cy.get(this.signInButton).click();
+  public selectShoppingCart():void {
+  cy.get(this.shoppingCartButton).click();
   }
 }
 export { ShoppingCartPage };

@@ -1,7 +1,8 @@
 export { MenuContentPage } from "./menu-content-page";
-export { AddressStepPage } from "./address-step-page";
-export { PaymentStepPage } from "./payment-step-page";
+export { OverviewPage } from "./overview.page";
 export { ProductsListPage } from "./products-list-page";
-export { ShippingStepPage } from "./shipping-step-page";
+export { InformationPage } from "./information-page";
 export { ShoppingCartPage } from "./shoping-cart-page";
-export { DressesListPage } from "./dresses-list.page";
+export { CheckoutCompletePage } from "./checkout-complete.page";
+export { ItemPage } from "./item-page";
+export { LoginPage } from "./login-page";
