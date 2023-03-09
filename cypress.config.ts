@@ -16,4 +16,5 @@ export default defineConfig({
     },
   },
   watchForFileChanges: false,
+  chromeWebSecurity: false,
 });

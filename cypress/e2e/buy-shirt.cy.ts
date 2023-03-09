@@ -1,43 +1,40 @@
 import {
-  AddressStepPage,
-  MenuContentPage,
-  PaymentStepPage,
-} from "../page/index";
-import {
+  CheckoutCompletePage,
+  InformationPage,
+  OverviewPage,
   ProductsListPage,
-  ShippingStepPage,
   ShoppingCartPage,
 } from "../page/index";
+import { LoginPage } from "../page/index";
+import { ItemPage } from "../page/index";
+
+const loginPage = new LoginPage();
+const checkoutCompletePage = new CheckoutCompletePage();
+const shoppingCartPage = new ShoppingCartPage();
+const productsListPage = new ProductsListPage();
+const itemPage = new ItemPage();
+const informationPage = new InformationPage();
+const overviewPage = new OverviewPage();
+
+before(() => {
+  loginPage.visitLoginPage();
+  loginPage.signIn();
+});
 
 describe("Buy a t-shirt", () => {
-  let menuContentPageURL: MenuContentPage;
-  let productListPage: ProductsListPage;
-  let shoppingCartPage: ShoppingCartPage;
-  let shippingStepPage: ShippingStepPage;
-  let addressStepPage: AddressStepPage;
-  let paymentStepPage: PaymentStepPage;
-  let confirmationMessage = "Your order on My Store is complete.";
-  let productName = "Faded Short Sleeve T-shirts";
-
-  before(() => {
-    menuContentPageURL = new MenuContentPage();
-    productListPage = new ProductsListPage();
-    shoppingCartPage = new ShoppingCartPage();
-    shippingStepPage = new ShippingStepPage();
-    addressStepPage = new AddressStepPage();
-    paymentStepPage = new PaymentStepPage();
-
-    menuContentPageURL.visitMenuContentPage();
-    menuContentPageURL.goToShirtMenu();
-    productListPage.selectProductList(productName);
-    productListPage.goToShopping();
-    shoppingCartPage.proceedCheckout();
-    shoppingCartPage.signInApplication();
-    addressStepPage.goToShippingCart();
-    shippingStepPage.goToPayment();
-    paymentStepPage.goToPayProduct();
-  });
-  it("then the t-shirt should be bought", () => {
-    paymentStepPage.validateItemsNumber(confirmationMessage);
+  it("then should be bought a t-shirt", () => {
+    productsListPage.goToTShirtMenu();
+    itemPage.selectItem();
+    shoppingCartPage.selectShoppingCart();
+    informationPage.goToCheckout();
+    informationPage.fillForm();
+    overviewPage.goToOverview();
+    cy.get(".summary_subtotal_label").should("contain.text", "15.99");
+    cy.get(".summary_total_label").should("contain.text", "17.27");
+    checkoutCompletePage.finishShopping();
+    cy.get("#contents_wrapper > .checkout_complete_container > h2").should(
+      "have.text",
+      "Thank you for your order!"
+    );
   });
 });

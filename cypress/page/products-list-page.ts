@@ -1,26 +1,11 @@
 class ProductsListPage {
   private productList: string;
-  private proceedToCheckoutButton: string;
-  private productos: string;
 
   constructor() {
-    this.productList = "a[title='Add to cart']";
-    this.proceedToCheckoutButton =
-      ".button-container a[title='Proceed to checkout']";
-    this.productos = ".product-container";
+    this.productList = "#item_1_title_link > .inventory_item_name";
   }
-  selectProductList(productName: string): void {
-    this.findProductByName(productName).find(this.productList).click();
-  }
-  goToShopping(): void {
-    cy.get(this.proceedToCheckoutButton).click();
-  }
-
-  private findProductByName(
-    name: string
-  ): Cypress.Chainable<JQuery<HTMLElement>> {
-    return cy.get(this.productos).filter(`:contains("${name}")`);
+  public goToTShirtMenu(): void {
+    cy.get(this.productList).click();
   }
 }
-
 export { ProductsListPage };
