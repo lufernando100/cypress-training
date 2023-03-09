@@ -5,7 +5,6 @@ class ItemPage {
     this.itemName = "#add-to-cart-sauce-labs-bolt-t-shirt"
   }
   public selectItem(): void {
-    cy.wait(500)
     cy.get(this.itemName).click();
   }
 }

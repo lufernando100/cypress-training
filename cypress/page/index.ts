@@ -1,4 +1,3 @@
-export { MenuContentPage } from "./menu-content-page";
 export { OverviewPage } from "./overview.page";
 export { ProductsListPage } from "./products-list-page";
 export { InformationPage } from "./information-page";

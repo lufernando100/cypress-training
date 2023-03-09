@@ -6,9 +6,9 @@ class LoginPage {
   
     constructor() {
       this.loginURL = "https://www.saucedemo.com/";
-      this.userNameField = ".login-box > form > div > input#user-name";
-      this.passwordField = ".login-box > form > div > input#password";
-      this.loginButton = "input[type='submit']";
+      this.userNameField = "#user-name";
+      this.passwordField = "#password";
+      this.loginButton = "#login-button";
     }
   
     public visitLoginPage(): void {
