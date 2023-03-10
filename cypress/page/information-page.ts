@@ -6,9 +6,9 @@ class InformationPage {
 
   constructor() {
     this.checkoutButton = "#checkout";
-    this.firstNameField = "[data-test='firstName']";
-    this.lastNameField = "[data-test='lastName']";
-    this.postalCode ="[data-test='postalCode']";
+    this.firstNameField = "#first-name";
+    this.lastNameField = "#last-name";
+    this.postalCode ="#postal-code";
   }
   goToCheckout(): void {
     cy.get(this.checkoutButton).click();
