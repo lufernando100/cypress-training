@@ -15,7 +15,7 @@ const productsListPage = new ProductsListPage();
 const itemPage = new ItemPage();
 const informationPage = new InformationPage();
 const overviewPage = new OverviewPage();
-
+//Arrange
 before(() => {
   loginPage.visitLoginPage();
   loginPage.signIn();
@@ -23,15 +23,19 @@ before(() => {
 
 describe("Buy a t-shirt", () => {
   it("then should be bought a t-shirt", () => {
+    //Action
     productsListPage.goToTShirtMenu();
     itemPage.selectItem();
     shoppingCartPage.selectShoppingCart();
     informationPage.goToCheckout();
     informationPage.fillForm();
     overviewPage.goToOverview();
+    //Assertion
     cy.get(".summary_subtotal_label").should("contain.text", "15.99");
     cy.get(".summary_total_label").should("contain.text", "17.27");
+    //Action
     checkoutCompletePage.finishShopping();
+    //Assertion
     cy.get("#contents_wrapper > .checkout_complete_container > h2").should(
       "have.text",
       "Thank you for your order!"
