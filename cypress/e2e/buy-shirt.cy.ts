@@ -24,7 +24,7 @@ before(() => {
 describe("Buy a t-shirt", () => {
   it("then should be bought a t-shirt", () => {
     //Action
-    productsListPage.goToTShirtMenu();
+    productsListPage.goToTShirtMenu("Sauce Labs Bolt T-Shirt");
     itemPage.selectItem();
     shoppingCartPage.selectShoppingCart();
     informationPage.goToCheckout();
