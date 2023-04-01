@@ -5,3 +5,6 @@ export { ShoppingCartPage } from "./shoping-cart-page";
 export { CheckoutCompletePage } from "./checkout-complete.page";
 export { ItemPage } from "./item-page";
 export { LoginPage } from "./login-page";
+export { FormPage } from "./formpage";
+export { UploadPage } from "./upload-page";
+

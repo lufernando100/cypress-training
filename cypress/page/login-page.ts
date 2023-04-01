@@ -1,11 +1,13 @@
 class LoginPage {
     private loginURL: string;
+    private loginUrlForm: string;
     private userNameField: string;
     private passwordField: string;
     private loginButton: string;
   
     constructor() {
       this.loginURL = "https://www.saucedemo.com/";
+      this.loginUrlForm = "https://demoqa.com/automation-practice-form";
       this.userNameField = "#user-name";
       this.passwordField = "#password";
       this.loginButton = "#login-button";
@@ -13,6 +15,11 @@ class LoginPage {
   
     public visitLoginPage(): void {
       cy.visit(this.loginURL);
+    }
+
+    public visitLoginPageForm(): void{
+      cy.visit(this.loginUrlForm);
+
     }
   
     public signIn(): void {
