@@ -2,10 +2,15 @@ class ProductsListPage {
   private productList: string;
 
   constructor() {
-    this.productList = "#item_1_title_link > .inventory_item_name";
+    this.productList = "#inventory_container";
   }
-  public goToTShirtMenu(): void {
-    cy.get(this.productList).click();
+  public goToTShirtMenu(productName:string): void {
+    this.findProductByName(productName);
   }
+  
+  public findProductByName(productListName: string) {
+    return cy.get(this.productList).filter(`:contains(${productListName})`)
+  }
+ 
 }
 export { ProductsListPage };
