@@ -9,6 +9,10 @@ class UploadPage {
     cy.visit("https://the-internet.herokuapp.com/upload");
   }
 
+  public goToPageToDownload(): void {
+    cy.visit("https://demoqa.com/upload-download");
+  }
+
   public uploadFile(fileName: string): void {
     cy.get(this.uploadField).attachFile(fileName)
   }
