@@ -8,4 +8,6 @@ export { LoginPage } from "./login-page";
 export { FormPage } from "./formpage";
 export { UploadPage } from "./upload-page";
 export { DownloadPage } from "./download-page";
+export { IframePage } from "./iframe-page";
+
 
